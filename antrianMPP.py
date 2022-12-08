@@ -1,1 +1,2 @@
-print"Bagas Ganteng"
+print("Bagas Ganteng")
+print("Ganteng Banget Sihh")
