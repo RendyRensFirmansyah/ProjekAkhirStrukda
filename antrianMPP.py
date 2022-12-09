@@ -17,8 +17,6 @@ try:
                 while n is not None:
                     print(n.item , " ")
                     n = n.ref
-            # input()
-            # self.menu()
 
         def insert_at_start(self, data):
             nodeBaru = Node(data)
