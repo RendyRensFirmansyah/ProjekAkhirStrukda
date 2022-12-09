@@ -110,16 +110,10 @@ try:
             savePeople_data.insert_at_end(dataThree)
             inputLanjut = input("Masukan Y/T : ")
             print("======= Data telah masuk ke dalam layanan ========")
-            if inputLanjut == "Y" or inputLanjut == "y":
-                self.menuPengajuan()
-            elif inputLanjut == "T" or inputLanjut == "t":
-                print("====== Mohon tunggu proses permohonan anda =======")
-                time.sleep(1)
-                self.menuHome()
-            else:
-                print("Pilihan yang anda masukan tidak ada")
-                self.menuHome()
-            # print("Tekan enter untuk lanjut")
+            print("====== Mohon tunggu proses permohonan anda =======")
+            print("Tekan enter untuk lanjut")
+            input()
+            self.menu()
         def pengajuanPermohonanKTP(self):
             global savePeople_data
             savePeople_data = LinkedList()
@@ -198,6 +192,7 @@ try:
             os.system("cls")
             print("======================================")
             print("     MALL PELAYANAN PUBLIK JEMBER     ")
+            print("               COSTUMER               ")
             print("======================================")
             print("| 1. Ambil  Antrian                  |")
             print("| 2. Keluar                          |")
