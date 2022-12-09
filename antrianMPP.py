@@ -88,18 +88,36 @@ try:
             input()
             self.menu()
         def exit(self):
-            print("Anda telah keluar dari program")
+            print("Terima Kasih telah menggunakan Mall Pelayanan Publik Jember")
             import sys
             sys.exit()
-        def pengajuanPermohonan(self):
+        def pengajuanPermohonanKK(self):
             global savePeople_data
             savePeople_data = LinkedList()
             dataOne = input("Masukkan NIK : ")
             savePeople_data.insert_at_start(dataOne)
             dataTwo = input("Masukka No.KTP : ")
-            savePeople_data.insert_at_start(dataTwo)
+            savePeople_data.insert_at_end(dataTwo)
             dataThree = input("Masukkan Tempat, Tanggal Lahir : ")
-            savePeople_data.insert_at_start(dataThree)
+            savePeople_data.insert_at_end(dataThree)
+            print("======= Data telah masuk ke dalam layanan ========")
+            print("====== Mohon tunggu proses permohonan anda =======")
+            print("Tekan enter untuk lanjut")
+            input()
+            self.menu()
+        def pengajuanPermohonanKTP(self):
+            global savePeople_data
+            savePeople_data = LinkedList()
+            dataOne = input("Masukkan Nama Lengkap : ")
+            savePeople_data.insert_at_start(dataOne)
+            dataTwo = input("Masukka No.KK : ")
+            savePeople_data.insert_at_end(dataTwo)
+            dataThree = input("Masukka Gol. Darah : ")
+            savePeople_data.insert_at_end(dataThree)
+            dataFour = input("Masukkan Tempat, Tanggal Lahir : ")
+            savePeople_data.insert_at_end(dataFour)
+            dataFive = input("Masukkan Nomor Telepon : ")
+            savePeople_data.insert_at_end(dataFive)
             print("======= Data telah masuk ke dalam layanan ========")
             print("====== Mohon tunggu proses permohonan anda =======")
             print("Tekan enter untuk lanjut")
@@ -121,9 +139,9 @@ try:
             
             inputMenu = int(input("Pilih Daftar Menu : "))
             if inputMenu == 1:
-                pass
+                self.pengajuanPermohonanKTP()
             elif inputMenu == 2:
-                pass
+                self.pengajuanPermohonanKK()
             elif inputMenu == 3:
                 pass
             elif inputMenu == 4:
@@ -134,42 +152,61 @@ try:
                 pass
             else:
                 print("Mohon maaf pilihan menu tidak ada")
-        def menu(self):
+        def menuCostumer(self):
             global savePeople_data
             import os
             os.system("cls")
             print("======================================")
             print("     MALL PELAYANAN PUBLIK JEMBER     ")
             print("======================================")
-            print("| 1. Tambah Antrian                  |")
-            print("| 2. Lihat Daftar Antrian            |")
-            print("| 3. Panggil Antrian                 |")
-            print("| 4. Pengajuan Permohonan            |")
-            print("| 5. Data Permohonan                 |")
-            print("| 6. Keluar Program                  |")
-            print("======================================")
-                
+            print("| 1. Ambil  Antrian                  |")
+            print("| 2. Keluar                          |")
+            print("======================================") 
+              
             inputProgram = int(input("Pilih Daftar Menu : "))
             if inputProgram == 1:
                 dataAntrian = input("Masukkan nama antrian : ")
                 self.enqueue(dataAntrian)
-            elif inputProgram == 2:
+                input()
+                self.menu()
+            else:
+                self.exit()
+        
+        def menu(self):
+            global savePeople_data
+            import os
+            os.system("cls")
+            print("======================================")
+            print("     MALL PELAYANAN PUBLIK JEMBER     ")
+            print("                 ADMIN                ")
+            print("======================================")
+            print("| 1. Lihat Daftar Antrian            |")
+            print("| 2. Panggil Antrian                 |")
+            print("| 3. Pengajuan Permohonan            |")
+            print("| 4. Data Permohonan                 |")
+            print("| 5. Keluar Program                  |")
+            print("======================================")
+                
+            inputProgram = int(input("Pilih Daftar Menu : "))
+            if inputProgram == 1:
                 self.lihatAntrian()
-            elif inputProgram == 3:
+            elif inputProgram == 2:
                 self.dequeue()
-            elif inputProgram == 4:
+            elif inputProgram == 3:
                 self.menuPengajuan()
                 
-            elif inputProgram == 5:
+            elif inputProgram == 4:
                 savePeople_data.cetakPermohonan()
-            elif inputProgram == 6:
+                input()
+                self.menu()
+            elif inputProgram == 5:
                 self.exit()
             else:
                 print("Mohon maaf pilihan menu tidak sesuai !")
                 print("Tekan enter untuk kembali ke menu")
                 input()
-                self.menu
+                self.menu()
     tes = antrianQueue()
-    tes.menu()
+    tes.menuCostumer()
 except ValueError:
     print("Program Not Responding")
