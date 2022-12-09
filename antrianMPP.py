@@ -17,8 +17,8 @@ try:
                 while n is not None:
                     print(n.item , " ")
                     n = n.ref
-            input()
-            self.menu()
+            # input()
+            # self.menu()
 
         def insert_at_start(self, data):
             nodeBaru = Node(data)
@@ -51,6 +51,7 @@ try:
             else:
                 return False
         def enqueue(self,name):
+            import time
             if self.antrianFull():
                 print("Mohon Maaf Sementara Ini Antrian Sudah Terlalu Penuh")
                 print("Silahkan Menunggu Terlebih Dahulu ! Terima Kasih.")
@@ -59,12 +60,14 @@ try:
                 self.sizeIn = len(self.data)
                 print(name,"Telah berhasil ditambahkan ke antrian.")
                 inputLanjut = input("Masukan Y/T : ")
-                if inputLanjut == "Y":
+                if inputLanjut == "Y" or inputLanjut == "y":
                     self.menuCostumer()
-                elif inputLanjut == "T":
+                elif inputLanjut == "T" or inputLanjut == "t":
                     self.menuHome()
                 else:
                     print("Pilihan yang anda masukan tidak ada")
+                    time.sleep(1)
+                    self.menuCostumer()
         def dequeue(self):
             if self.antrianKosong():
                 print("Antrian masih dalam keadaan kosong")
@@ -96,6 +99,7 @@ try:
             import sys
             sys.exit()
         def pengajuanPermohonanKK(self):
+            import time
             global savePeople_data
             savePeople_data = LinkedList()
             dataOne = input("Masukkan NIK : ")
@@ -104,11 +108,18 @@ try:
             savePeople_data.insert_at_end(dataTwo)
             dataThree = input("Masukkan Tempat, Tanggal Lahir : ")
             savePeople_data.insert_at_end(dataThree)
+            inputLanjut = input("Masukan Y/T : ")
             print("======= Data telah masuk ke dalam layanan ========")
-            print("====== Mohon tunggu proses permohonan anda =======")
-            print("Tekan enter untuk lanjut")
-            input()
-            self.menu()
+            if inputLanjut == "Y" or inputLanjut == "y":
+                self.menuPengajuan()
+            elif inputLanjut == "T" or inputLanjut == "t":
+                print("====== Mohon tunggu proses permohonan anda =======")
+                time.sleep(1)
+                self.menuHome()
+            else:
+                print("Pilihan yang anda masukan tidak ada")
+                self.menuHome()
+            # print("Tekan enter untuk lanjut")
         def pengajuanPermohonanKTP(self):
             global savePeople_data
             savePeople_data = LinkedList()
