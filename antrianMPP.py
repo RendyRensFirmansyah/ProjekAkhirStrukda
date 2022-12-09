@@ -1,4 +1,40 @@
 try:
+    class Node: #Buat LinkedListnya
+        def __init__(self, dataLis):
+            self.item = dataLis
+            self.ref = None
+            
+    class LinkedList:
+        def __init__(self):
+            self.nodeAwal = None
+        
+        def cetakPermohonan(self):
+            if self.nodeAwal is None:
+                print("List has no element")
+                return
+            else:
+                n = self.nodeAwal
+                while n is not None:
+                    print(n.item , " ")
+                    n = n.ref
+            input()
+            self.menu()
+
+        def insert_at_start(self, data):
+            nodeBaru = Node(data)
+            nodeBaru.ref = self.nodeAwal
+            self.nodeAwal= nodeBaru
+        
+        def insert_at_end(self, data):
+            new_node = Node(data)
+            if self.nodeAwal is None:
+                self.nodeAwal = new_node
+                return
+            n = self.nodeAwal
+            while n.ref is not None:
+                n= n.ref
+            n.ref = new_node;
+    
     class antrianQueue:
         def __init__(self,n=50):
             self.size = n
@@ -14,14 +50,14 @@ try:
                 return True
             else:
                 return False
-        def enqueue(self,n):
+        def enqueue(self,name):
             if self.antrianFull():
                 print("Mohon Maaf Sementara Ini Antrian Sudah Terlalu Penuh")
                 print("Silahkan Menunggu Terlebih Dahulu ! Terima Kasih.")
             else:
-                self.data.append(n)
+                self.data.append(name)
                 self.sizeIn = len(self.data)
-                print(n,"Telah berhasil ditambahkan ke antrian.")
+                print(name,"Telah berhasil ditambahkan ke antrian.")
             print("Tekan enter untuk lanjut")
             input()
             self.menu()
@@ -55,7 +91,51 @@ try:
             print("Anda telah keluar dari program")
             import sys
             sys.exit()
+        def pengajuanPermohonan(self):
+            global savePeople_data
+            savePeople_data = LinkedList()
+            dataOne = input("Masukkan NIK : ")
+            savePeople_data.insert_at_start(dataOne)
+            dataTwo = input("Masukka No.KTP : ")
+            savePeople_data.insert_at_start(dataTwo)
+            dataThree = input("Masukkan Tempat, Tanggal Lahir : ")
+            savePeople_data.insert_at_start(dataThree)
+            print("======= Data telah masuk ke dalam layanan ========")
+            print("====== Mohon tunggu proses permohonan anda =======")
+            print("Tekan enter untuk lanjut")
+            input()
+            self.menu()
+        def menuPengajuan(self):
+            import os
+            os.system("cls")
+            print("======================================")
+            print("     MALL PELAYANAN PUBLIK JEMBER     ")
+            print("======================================")
+            print("| 1. Pembuatan KTP                   |")
+            print("| 2. Pembuatan Kartu Keluarga        |")
+            print("| 3. Pembuatan Akta Kelahiran        |")
+            print("| 4. Pengurusan Akta Perkawinan      |")
+            print("| 5. Pengurusan KIA                  |")
+            print("| 6. Keluar Program                  |")
+            print("======================================")
+            
+            inputMenu = int(input("Pilih Daftar Menu : "))
+            if inputMenu == 1:
+                pass
+            elif inputMenu == 2:
+                pass
+            elif inputMenu == 3:
+                pass
+            elif inputMenu == 4:
+                pass
+            elif inputMenu == 5:
+                pass
+            elif inputMenu == 6:
+                pass
+            else:
+                print("Mohon maaf pilihan menu tidak ada")
         def menu(self):
+            global savePeople_data
             import os
             os.system("cls")
             print("======================================")
@@ -65,7 +145,8 @@ try:
             print("| 2. Lihat Daftar Antrian            |")
             print("| 3. Panggil Antrian                 |")
             print("| 4. Pengajuan Permohonan            |")
-            print("| 5. Keluar Program                  |")
+            print("| 5. Data Permohonan                 |")
+            print("| 6. Keluar Program                  |")
             print("======================================")
                 
             inputProgram = int(input("Pilih Daftar Menu : "))
@@ -77,8 +158,11 @@ try:
             elif inputProgram == 3:
                 self.dequeue()
             elif inputProgram == 4:
-                pass
+                self.menuPengajuan()
+                
             elif inputProgram == 5:
+                savePeople_data.cetakPermohonan()
+            elif inputProgram == 6:
                 self.exit()
             else:
                 print("Mohon maaf pilihan menu tidak sesuai !")
