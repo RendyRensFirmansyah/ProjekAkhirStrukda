@@ -58,9 +58,13 @@ try:
                 self.data.append(name)
                 self.sizeIn = len(self.data)
                 print(name,"Telah berhasil ditambahkan ke antrian.")
-            print("Tekan enter untuk lanjut")
-            input()
-            self.menu()
+                inputLanjut = input("Masukan Y/T : ")
+                if inputLanjut == "Y":
+                    self.menuCostumer()
+                elif inputLanjut == "T":
+                    self.menuHome()
+                else:
+                    print("Pilihan yang anda masukan tidak ada")
         def dequeue(self):
             if self.antrianKosong():
                 print("Antrian masih dalam keadaan kosong")
@@ -124,6 +128,7 @@ try:
             input()
             self.menu()
         def menuHome(self):
+            from getpass import getpass
             import os
             os.system("cls")
             print("======================================")
@@ -138,10 +143,8 @@ try:
                 self.menuCostumer()
             elif inputMenu == 2:
                 inputUser = input("Masukan Username : ")
-                inputPass = input("Masukan Password : ")
+                inputPass = getpass("Masukan Password : ")
                 if inputUser == "Admin" and inputPass == "Admin":
-                    import os
-                    os.system("cls")
                     self.menu()
                 else:
                     print("user dan password yang anda masukan salah")
@@ -193,13 +196,6 @@ try:
             if inputProgram == 1:
                 dataAntrian = input("Masukkan nama antrian : ")
                 self.enqueue(dataAntrian)
-                inputLanjut = input("Masukan Y/T : ")
-                if inputLanjut == "Y":
-                    self.menuCostumer()
-                elif inputLanjut == "T":
-                    self.menuHome()
-                else:
-                    print("Pilihan yang anda masukan tidak ada")
             else:
                 self.menuHome()
         
@@ -225,13 +221,12 @@ try:
                 self.dequeue()
             elif inputProgram == 3:
                 self.menuPengajuan()
-                
             elif inputProgram == 4:
                 savePeople_data.cetakPermohonan()
                 input()
                 self.menu()
             elif inputProgram == 5:
-                self.exit()
+                self.menuHome()
             else:
                 print("Mohon maaf pilihan menu tidak sesuai !")
                 print("Tekan enter untuk kembali ke menu")
