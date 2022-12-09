@@ -123,6 +123,32 @@ try:
             print("Tekan enter untuk lanjut")
             input()
             self.menu()
+        def menuHome(self):
+            import os
+            os.system("cls")
+            print("======================================")
+            print("     MALL PELAYANAN PUBLIK JEMBER     ")
+            print("======================================")
+            print("| 1. Customer                        |")
+            print("| 2. Admin                           |")
+            print("| 3. Keluar                          |")
+            print("======================================")
+            inputMenu = int(input("Pilih Daftar Menu : "))
+            if inputMenu == 1:
+                self.menuCostumer()
+            elif inputMenu == 2:
+                inputUser = input("Masukan Username : ")
+                inputPass = input("Masukan Password : ")
+                if inputUser == "Admin" and inputPass == "Admin":
+                    import os
+                    os.system("cls")
+                    self.menu()
+                else:
+                    print("user dan password yang anda masukan salah")
+                    self.menuHome()
+            else:
+                self.exit()
+
         def menuPengajuan(self):
             import os
             os.system("cls")
@@ -149,7 +175,7 @@ try:
             elif inputMenu == 5:
                 pass
             elif inputMenu == 6:
-                pass
+                self.menu()
             else:
                 print("Mohon maaf pilihan menu tidak ada")
         def menuCostumer(self):
@@ -167,10 +193,15 @@ try:
             if inputProgram == 1:
                 dataAntrian = input("Masukkan nama antrian : ")
                 self.enqueue(dataAntrian)
-                input()
-                self.menu()
+                inputLanjut = input("Masukan Y/T : ")
+                if inputLanjut == "Y":
+                    self.menuCostumer()
+                elif inputLanjut == "T":
+                    self.menuHome()
+                else:
+                    print("Pilihan yang anda masukan tidak ada")
             else:
-                self.exit()
+                self.menuHome()
         
         def menu(self):
             global savePeople_data
@@ -207,6 +238,6 @@ try:
                 input()
                 self.menu()
     tes = antrianQueue()
-    tes.menuCostumer()
+    tes.menuHome()
 except ValueError:
     print("Program Not Responding")
