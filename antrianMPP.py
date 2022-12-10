@@ -13,6 +13,7 @@ try:
                 print("List has no element")
                 return
             else:
+                print("======Data Pengajuan Anda======")
                 n = self.nodeAwal
                 while n is not None:
                     print(n.item , " ")
