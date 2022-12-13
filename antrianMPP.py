@@ -1,40 +1,45 @@
 try:
-    class Node: #Buat LinkedListnya
-        def __init__(self, dataLis):
-            self.item = dataLis
-            self.ref = None
-            
-    class LinkedList:
+    class node:
+        def __init__(self, data=None):
+            self.data = data
+            self.next = None
+    class saveDataLL:
         def __init__(self):
-            self.nodeAwal = None
-        
-        def cetakPermohonan(self):
-            if self.nodeAwal is None:
-                print("List has no element")
+            self.head = None
+        def addBegin(self, inData):
+            nodeNew = node(inData)
+            nodeNew.next = self.head
+            self.head = nodeNew
+        def addEnd(self, inData):
+            nodeNew = node(inData)
+            if self.head is None:
+                self.head = nodeNew
                 return
-            else:
-                n = self.nodeAwal
-                while n is not None:
-                    print(n.item , " ")
-                    n = n.ref
-            input()
-            self.menu()
-
-        def insert_at_start(self, data):
-            nodeBaru = Node(data)
-            nodeBaru.ref = self.nodeAwal
-            self.nodeAwal= nodeBaru
-        
-        def insert_at_end(self, data):
-            new_node = Node(data)
-            if self.nodeAwal is None:
-                self.nodeAwal = new_node
+            nNode = self.head
+            while(nNode.next):
+                nNode = nNode.next
+            nNode.next= nodeNew
+        def removeData(self, keyRemove):
+            head = self.head
+            if (head is not None):
+                if (head.data == keyRemove):
+                    self.head = head.next
+                    head = None
+                    return
+            while (head is not None):
+                if head.data == keyRemove:
+                    break
+                prev = head
+                head = head.next
+            if (head == None):
                 return
-            n = self.nodeAwal
-            while n.ref is not None:
-                n= n.ref
-            n.ref = new_node;
-    
+            prev.next = head.next
+            head = None
+        def printLL(self):
+            printvalue = self.head
+            while(printvalue):
+                print(printvalue.data)
+                printvalue = printvalue.next
     class antrianQueue:
         def __init__(self,n=50):
             self.size = n
@@ -51,6 +56,7 @@ try:
             else:
                 return False
         def enqueue(self,name):
+            import time
             if self.antrianFull():
                 print("Mohon Maaf Sementara Ini Antrian Sudah Terlalu Penuh")
                 print("Silahkan Menunggu Terlebih Dahulu ! Terima Kasih.")
@@ -58,9 +64,7 @@ try:
                 self.data.append(name)
                 self.sizeIn = len(self.data)
                 print(name,"Telah berhasil ditambahkan ke antrian.")
-            print("Tekan enter untuk lanjut")
-            input()
-            self.menu()
+                self.menuCostumer()
         def dequeue(self):
             if self.antrianKosong():
                 print("Antrian masih dalam keadaan kosong")
@@ -92,14 +96,15 @@ try:
             import sys
             sys.exit()
         def pengajuanPermohonanKK(self):
+            import time
             global savePeople_data
-            savePeople_data = LinkedList()
+            savePeople_data = saveDataLL()
             dataOne = input("Masukkan NIK : ")
-            savePeople_data.insert_at_start(dataOne)
+            savePeople_data.addBegin(dataOne)
             dataTwo = input("Masukka No.KTP : ")
-            savePeople_data.insert_at_end(dataTwo)
+            savePeople_data.addEnd(dataTwo)
             dataThree = input("Masukkan Tempat, Tanggal Lahir : ")
-            savePeople_data.insert_at_end(dataThree)
+            savePeople_data.addEnd(dataThree)
             print("======= Data telah masuk ke dalam layanan ========")
             print("====== Mohon tunggu proses permohonan anda =======")
             print("Tekan enter untuk lanjut")
@@ -107,22 +112,47 @@ try:
             self.menu()
         def pengajuanPermohonanKTP(self):
             global savePeople_data
-            savePeople_data = LinkedList()
+            savePeople_data = saveDataLL()
             dataOne = input("Masukkan Nama Lengkap : ")
-            savePeople_data.insert_at_start(dataOne)
+            savePeople_data.addBegin(dataOne)
             dataTwo = input("Masukka No.KK : ")
-            savePeople_data.insert_at_end(dataTwo)
+            savePeople_data.addEnd(dataTwo)
             dataThree = input("Masukka Gol. Darah : ")
-            savePeople_data.insert_at_end(dataThree)
+            savePeople_data.addEnd(dataThree)
             dataFour = input("Masukkan Tempat, Tanggal Lahir : ")
-            savePeople_data.insert_at_end(dataFour)
+            savePeople_data.addEnd(dataFour)
             dataFive = input("Masukkan Nomor Telepon : ")
-            savePeople_data.insert_at_end(dataFive)
+            savePeople_data.addEnd(dataFive)
             print("======= Data telah masuk ke dalam layanan ========")
             print("====== Mohon tunggu proses permohonan anda =======")
             print("Tekan enter untuk lanjut")
             input()
             self.menu()
+        def menuHome(self):
+            from getpass import getpass
+            import os
+            os.system("cls")
+            print("======================================")
+            print("     MALL PELAYANAN PUBLIK JEMBER     ")
+            print("======================================")
+            print("| 1. Customer                        |")
+            print("| 2. Admin                           |")
+            print("| 3. Keluar                          |")
+            print("======================================")
+            inputMenu = int(input("Pilih Daftar Menu : "))
+            if inputMenu == 1:
+                self.menuCostumer()
+            elif inputMenu == 2:
+                inputUser = input("Masukan Username : ")
+                inputPass = getpass("Masukan Password : ")
+                if inputUser == "Admin" and inputPass == "Admin":
+                    self.menu()
+                else:
+                    print("user dan password yang anda masukan salah")
+                    self.menuHome()
+            else:
+                self.exit()
+
         def menuPengajuan(self):
             import os
             os.system("cls")
@@ -149,7 +179,7 @@ try:
             elif inputMenu == 5:
                 pass
             elif inputMenu == 6:
-                pass
+                self.menu()
             else:
                 print("Mohon maaf pilihan menu tidak ada")
         def menuCostumer(self):
@@ -158,6 +188,7 @@ try:
             os.system("cls")
             print("======================================")
             print("     MALL PELAYANAN PUBLIK JEMBER     ")
+            print("               COSTUMER               ")
             print("======================================")
             print("| 1. Ambil  Antrian                  |")
             print("| 2. Keluar                          |")
@@ -167,10 +198,9 @@ try:
             if inputProgram == 1:
                 dataAntrian = input("Masukkan nama antrian : ")
                 self.enqueue(dataAntrian)
-                input()
-                self.menu()
             else:
-                self.exit()
+                self.menuHome()
+        
         def menu(self):
             global savePeople_data
             import os
@@ -193,19 +223,18 @@ try:
                 self.dequeue()
             elif inputProgram == 3:
                 self.menuPengajuan()
-                
             elif inputProgram == 4:
-                savePeople_data.cetakPermohonan()
+                savePeople_data.printLL()
                 input()
                 self.menu()
             elif inputProgram == 5:
-                self.exit()
+                self.menuHome()
             else:
                 print("Mohon maaf pilihan menu tidak sesuai !")
                 print("Tekan enter untuk kembali ke menu")
                 input()
                 self.menu()
     tes = antrianQueue()
-    tes.menuCostumer()
+    tes.menuHome()
 except ValueError:
     print("Program Not Responding")
