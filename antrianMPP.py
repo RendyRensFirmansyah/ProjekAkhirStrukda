@@ -171,7 +171,6 @@ try:
                 self.menu()
             else:
                 self.exit()
-        
         def menu(self):
             global savePeople_data
             import os
