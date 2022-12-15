@@ -152,16 +152,49 @@ class antrianQueue:
         menuAdmin()
         
 
-data, data2 = LinkedList(), antrianQueue()
+dataKTP = LinkedList()
+dataKK = LinkedList()
+dataAK = LinkedList()
+dataAP = LinkedList()
+dataKIA = LinkedList()
+data2 = antrianQueue()
 
 # Mengkonversi Data Json ke LinkedList
 
-if os.path.exists('dataMPP.json'):
-    with open('dataMPP.json', 'r') as f:
-        dataKost = json.load(f)
+if os.path.exists('dataKTP.json'):
+    with open('dataKTP.json', 'r') as f:
+        dataKtp = json.load(f)
 
-    for i in dataKost:
-        data.addData(i)
+    for i in dataKtp:
+        dataKTP.addData(i)
+
+if os.path.exists('dataKK.json'):
+    with open('dataKK.json', 'r') as f:
+        dataKk = json.load(f)
+
+    for i in dataKk:
+        dataKK.addData(i)
+
+if os.path.exists('dataAK.json'):
+    with open('dataAK.json', 'r') as f:
+        dataAk = json.load(f)
+
+    for i in dataAk:
+        dataAK.addData(i)
+
+if os.path.exists('dataAP.json'):
+    with open('dataAP.json', 'r') as f:
+        dataAp = json.load(f)
+
+    for i in dataAp:
+        dataAP.addData(i)
+
+if os.path.exists('dataKIA.json'):
+    with open('dataKIA.json', 'r') as f:
+        dataKia = json.load(f)
+
+    for i in dataKia:
+        dataKIA.addData(i)
 
 # Main Menu
 def menuCostumer():
@@ -226,13 +259,13 @@ def MenuKTP():
         clear()
 
     def tampilkanData():
-        if data.isEmpty():
+        if dataKTP.isEmpty():
             return print("Data Kosong")
         else:
-            with open('dataMPP.json', 'r') as f:
-                dataKost = json.load(f)
-                dataKost = pd.DataFrame(dataKost)
-            return print(dataKost)
+            with open('dataKTP.json', 'r') as f:
+                dataKtp = json.load(f)
+                dataKtp = pd.DataFrame(dataKtp)
+            return print(dataKtp)
 
     def editData():
         clear()
@@ -245,7 +278,7 @@ def MenuKTP():
         print("\n")
         index = int(input("Data Index Keberapa yang akan diedit ? "))
         print("\n")
-        data.update(index)
+        dataKTP.update(index)
         print("\n")
         input("Tekan Enter Untuk Kembali ke Menu Utama")
         clear()
@@ -260,7 +293,7 @@ def MenuKTP():
         tampilkanData()
         print("\n")
         index = int(input("Data Index Keberapa yang akan diedit ? "))
-        data.remove(index)
+        dataKTP.remove(index)
         print("\n")
         input("Tekan Enter Untuk Kembali ke Menu Utama")
         clear()
@@ -268,8 +301,8 @@ def MenuKTP():
     while True:
 
         # Convert Linkedlist To Json
-        with open('dataMPP.json', 'w') as json_file:
-            json.dump(data.sendJson(), json_file, indent=4)
+        with open('dataKTP.json', 'w') as json_file:
+            json.dump(dataKTP.sendJson(), json_file, indent=4)
 
         pilih = mainKtp()
 
@@ -325,7 +358,7 @@ def MenuKK():
         berapaData = int(input("Berapa Data yang akan Ditambah ? "))
         print("")
         while berapaData:
-            data.addData(
+            dataKK.addData(
             {
                     'Nama': input("Masukan Nama                : "),
                     'NIK': input("Masukan No NIK          : "),
@@ -338,13 +371,13 @@ def MenuKK():
         clear()
 
     def tampilkanData():
-        if data.isEmpty():
+        if dataKK.isEmpty():
             return print("Data Kosong")
         else:
-            with open('dataMPP.json', 'r') as f:
-                dataKost = json.load(f)
-                dataKost = pd.DataFrame(dataKost)
-            return print(dataKost)
+            with open('dataKK.json', 'r') as f:
+                dataKk = json.load(f)
+                dataKk = pd.DataFrame(dataKk)
+            return print(dataKk)
 
     def editData():
         clear()
@@ -357,7 +390,7 @@ def MenuKK():
         print("\n")
         index = int(input("Data Index Keberapa yang akan diedit ? "))
         print("\n")
-        data.update(index)
+        dataKK.update(index)
         print("\n")
         input("Tekan Enter Untuk Kembali ke Menu Utama")
         clear()
@@ -372,7 +405,7 @@ def MenuKK():
         tampilkanData()
         print("\n")
         index = int(input("Data Index Keberapa yang akan diedit ? "))
-        data.remove(index)
+        dataKK.remove(index)
         print("\n")
         input("Tekan Enter Untuk Kembali ke Menu Utama")
         clear()
@@ -380,8 +413,8 @@ def MenuKK():
     while True:
 
         # Convert Linkedlist To Json
-        with open('dataMPP.json', 'w') as json_file:
-            json.dump(data.sendJson(), json_file, indent=4)
+        with open('dataKK.json', 'w') as json_file:
+            json.dump(dataKK.sendJson(), json_file, indent=4)
 
         pilih = mainKtp()
 
