@@ -53,7 +53,6 @@ class LinkedList:
             newNode = Node(data)
             last = self.getLast()
             last.next = newNode
-        print("\n Data Berhasil Ditambahkan \n")
     def removeFirst(self):
         if self.isEmpty():
             print("Penghapusan gagal karena data kosong")
@@ -62,11 +61,19 @@ class LinkedList:
             self.awal = self.awal.next 
             del first
     def remove(self, index):
+        import os,time
         if self.isEmpty():
             print("Penghapusan gagal karena data kosong")
         elif index+1 ==1:
             self.removeFirst()
-            print("\nData Berhasil Dihapus")
+            # print("\nData Berhasil Dihapus")
+            os.system("cls")
+            print()
+            print()
+            print("==========================================")
+            print("|         Data In Deleting .... ⟳       |")
+            print("==========================================")
+            time.sleep(1)
         else:
             prevNode = self.get(index)
             if prevNode is None:
@@ -75,7 +82,14 @@ class LinkedList:
                 removedNode = prevNode.next
                 prevNode.next = removedNode.next
                 del removedNode
-                print("\nData Berhasil Dihapus")
+                # print("\nData Berhasil Dihapus")
+                os.system("cls")
+                print()
+                print()
+                print("==========================================")
+                print("|         Data In Deleting .... ⟳       |")
+                print("==========================================")
+                time.sleep(1)
     def sendJson(self):
         if self.isEmpty():
             return "Belum ada data"
@@ -88,6 +102,7 @@ class LinkedList:
                 
             return datajs
     def updateKTP(self, index):
+        import os,time
         nodeUpdate = self.get(index+1)
         if nodeUpdate is None:
             print("Data yang akan diedit tidak ditemukan")
@@ -103,8 +118,15 @@ class LinkedList:
                     'NIK': (input("Masukan Nomor NIK : ")),
                     'Alamat': (input("Masukan Alamat : "))
             }
-            print("\nData Berhasil Diedit")
+            os.system("cls")
+            print()
+            print()
+            print("===============================================")
+            print("|         Data Has Been Updated .... ⟳        |")
+            print("===============================================")
+            time.sleep(1)
     def updateKK(self, index):
+        import os,time
         nodeUpdate = self.get(index+1)
         if nodeUpdate is None:
             print("Data yang akan diedit tidak ditemukan")
@@ -128,8 +150,15 @@ class LinkedList:
                 'Nama Anggota Keluarga 6': (input("Masukan Nama Lengkap Anggota Keluarga 6 : ")),
                 'Nama Anggota Keluarga 7': (input("Masukan Nama Lengkap Anggota Keluarga 7 : ")),
             }
-            print("\nData Berhasil Diedit")
+            os.system("cls")
+            print()
+            print()
+            print("===============================================")
+            print("|         Data Has Been Updated .... ⟳        |")
+            print("===============================================")
+            time.sleep(1)
     def updateAK(self, index):
+        import os,time
         nodeUpdate = self.get(index+1)
         if nodeUpdate is None:
             print("Data yang akan diedit tidak ditemukan")
@@ -146,8 +175,15 @@ class LinkedList:
                 'NIK Saksi': input("Masukan NIK Saksi : "),
                 'Nomor Akta Kelahiran': input("Masukan Nomor Akta Kelahiran : ")
             }
-            print("\nData Berhasil Diedit")
+            os.system("cls")
+            print()
+            print()
+            print("===============================================")
+            print("|         Data Has Been Updated .... ⟳        |")
+            print("===============================================")
+            time.sleep(1)
     def updateAP(self, index):
+        import os,time
         nodeUpdate = self.get(index+1)
         if nodeUpdate is None:
             print("Data yang akan diedit tidak ditemukan")
@@ -164,8 +200,15 @@ class LinkedList:
                 'NIK Saksi 1': input("Masukan Nomor NIK Saksi 1 : "),
                 'NIK Saksi 2': input("Masukan Nomor NIK Saksi 2 : "),
             }
-            print("\nData Berhasil Diedit")
+            os.system("cls")
+            print()
+            print()
+            print("===============================================")
+            print("|         Data Has Been Updated .... ⟳        |")
+            print("===============================================")
+            time.sleep(1)
     def updateKIA(self, index):
+        import os, time
         nodeUpdate = self.get(index+1)
         if nodeUpdate is None:
             print("Data yang akan diedit tidak ditemukan")
@@ -178,7 +221,13 @@ class LinkedList:
                 'Nomor Akta Kelahiran': input("Masukan Nomor Akta Kelahiran : "),
                 'Nomor KK': input("Masukan Nomor KK : ")
             }
-            print("\nData Berhasil Diedit")
+            os.system("cls")
+            print()
+            print()
+            print("===============================================")
+            print("|         Data Has Been Updated .... ⟳        |")
+            print("===============================================")
+            time.sleep(1)
 class antrianQueue:
     def __init__(self,n=50):
         self.size = n
@@ -278,7 +327,7 @@ if os.path.exists('dataKIA.json'):
 
 # Main Menu
 def menuCostumer():
-    import os
+    import os, time
     os.system("cls")
     print("======================================")
     print("     MALL PELAYANAN PUBLIK JEMBER     ")
@@ -293,6 +342,14 @@ def menuCostumer():
         dataAntrian = input("Masukkan nama antrian : ")
         data2.enqueue(dataAntrian)
     else:
+        os.system("cls")
+        print()
+        print()
+        print()
+        print("===================================")
+        print("|      Kembali ke menu...... ⟳    |")
+        print("===================================")
+        time.sleep(2)
         menuHome()
 
 def MenuKTP():
@@ -317,6 +374,7 @@ def MenuKTP():
         return pilih
 
     def tambahData():
+        import time,os
         clear()
         print("=======================================")
         print("     MALL PELAYANAN PUBLIK JEMBER      ")
@@ -340,7 +398,20 @@ def MenuKTP():
             })
             berapaData -= 1
         print("\n")
-        input("Tekan Enter Untuk Kembali ke Menu Utama")
+        os.system("cls")
+        print()
+        print()
+        print("==========================================")
+        print("|         Data In Progress .... ⟳        |")
+        print("==========================================")
+        time.sleep(1.5)
+        os.system("cls")
+        print()
+        print()
+        print("===============================================")
+        print("|         Data Has Been Recorded .... ✔       |")
+        print("===============================================")
+        time.sleep(1)
         clear()
 
     def tampilkanData():
@@ -365,7 +436,6 @@ def MenuKTP():
         print("\n")
         dataKTP.updateKTP(index)
         print("\n")
-        input("Tekan Enter Untuk Kembali ke Menu Utama")
         clear()
 
     def hapusData():
@@ -380,7 +450,6 @@ def MenuKTP():
         index = int(input("Data Index Keberapa yang akan diedit ? "))
         dataKTP.remove(index)
         print("\n")
-        input("Tekan Enter Untuk Kembali ke Menu Utama")
         clear()
 
     while True:
@@ -434,6 +503,7 @@ def MenuKK():
         return pilih
 
     def tambahData():
+        import os,time
         clear()
         print("=======================================")
         print("     MALL PELAYANAN PUBLIK JEMBER      ")
@@ -465,7 +535,20 @@ def MenuKK():
             })
             berapaData -= 1
         print("\n")
-        input("Tekan Enter Untuk Kembali ke Menu Utama")
+        os.system("cls")
+        print()
+        print()
+        print("==========================================")
+        print("|         Data In Progress .... ⟳        |")
+        print("==========================================")
+        time.sleep(1.5)
+        os.system("cls")
+        print()
+        print()
+        print("===============================================")
+        print("|         Data Has Been Recorded .... ✔       |")
+        print("===============================================")
+        time.sleep(1)
         clear()
 
     def tampilkanData():
@@ -490,7 +573,6 @@ def MenuKK():
         print("\n")
         dataKK.updateKK(index)
         print("\n")
-        input("Tekan Enter Untuk Kembali ke Menu Utama")
         clear()
 
     def hapusData():
@@ -505,7 +587,6 @@ def MenuKK():
         index = int(input("Data Index Keberapa yang akan diedit ? "))
         dataKK.remove(index)
         print("\n")
-        input("Tekan Enter Untuk Kembali ke Menu Utama")
         clear()
 
     while True:
@@ -548,17 +629,18 @@ def MenuAkteKelahiran():
         print("            Akta Kelahiran            ")
         print("======================================")
         print("\n")
-        print("| 1. Tambah data pengajuan KK        |")
-        print("| 2. Edit data KK                    |")
-        print("| 3. Hapus data KK                   |")
-        print("| 4. Tampilkan data KK               |")
-        print("| 0. Keluar Program                  |")
+        print("| 1. Tambah data pengajuan Akte Kelahiran |")
+        print("| 2. Edit data Akte Kelahiran             |")
+        print("| 3. Hapus data Akte Kelahiran            |")
+        print("| 4. Tampilkan data Akte Kelahiran        |")
+        print("| 0. Keluar Program                       |")
         print("\n")
         print("======================================")
         pilih = int(input("Pilih Menu : "))
         return pilih
 
     def tambahData():
+        import os,time
         clear()
         print("======================================")
         print("     MALL PELAYANAN PUBLIK JEMBER     ")
@@ -583,7 +665,20 @@ def MenuAkteKelahiran():
             })
             berapaData -= 1
         print("\n")
-        input("Tekan Enter Untuk Kembali ke Menu Utama")
+        os.system("cls")
+        print()
+        print()
+        print("==========================================")
+        print("|         Data In Progress .... ⟳        |")
+        print("==========================================")
+        time.sleep(1.5)
+        os.system("cls")
+        print()
+        print()
+        print("===============================================")
+        print("|         Data Has Been Recorded .... ✔       |")
+        print("===============================================")
+        time.sleep(1)
         clear()
 
     def tampilkanData():
@@ -608,7 +703,6 @@ def MenuAkteKelahiran():
         print("\n")
         dataAK.updateAK(index)
         print("\n")
-        input("Tekan Enter Untuk Kembali ke Menu Utama")
         clear()
 
     def hapusData():
@@ -623,7 +717,6 @@ def MenuAkteKelahiran():
         index = int(input("Data Index Keberapa yang akan diedit ? "))
         dataAK.remove(index)
         print("\n")
-        input("Tekan Enter Untuk Kembali ke Menu Utama")
         clear()
 
     while True:
@@ -666,17 +759,18 @@ def MenuAktePerkawinan():
         print("            Akta Perkawinan           ")
         print("======================================")
         print("\n")
-        print("| 1. Tambah data pengajuan KK        |")
-        print("| 2. Edit data KK                    |")
-        print("| 3. Hapus data KK                   |")
-        print("| 4. Tampilkan data KK               |")
-        print("| 0. Keluar Program                  |")
+        print("| 1. Tambah data pengajuan Akta Perkawinan |")
+        print("| 2. Edit data Akta Perkawinan             |")
+        print("| 3. Hapus data Akta Perkawinan            |")
+        print("| 4. Tampilkan data Akta Perkawinan        |")
+        print("| 0. Keluar Program                        |")
         print("\n")
         print("======================================")
         pilih = int(input("Pilih Menu : "))
         return pilih
 
     def tambahData():
+        import os,time
         clear()
         print("=======================================")
         print("     MALL PELAYANAN PUBLIK JEMBER      ")
@@ -701,14 +795,27 @@ def MenuAktePerkawinan():
             })
             berapaData -= 1
         print("\n")
-        input("Tekan Enter Untuk Kembali ke Menu Utama")
+        os.system("cls")
+        print()
+        print()
+        print("==========================================")
+        print("|         Data In Progress .... ⟳        |")
+        print("==========================================")
+        time.sleep(1.5)
+        os.system("cls")
+        print()
+        print()
+        print("===============================================")
+        print("|         Data Has Been Recorded .... ✔       |")
+        print("===============================================")
+        time.sleep(1)
         clear()
 
     def tampilkanData():
         if dataAP.isEmpty():
             return print("Data Kosong")
         else:
-            with open('dataMPP.json', 'r') as f:
+            with open('dataAP.json', 'r') as f:
                 dataAp = json.load(f)
                 dataAp = pd.DataFrame(dataAp)
             return print(dataAp)
@@ -726,7 +833,6 @@ def MenuAktePerkawinan():
         print("\n")
         dataAP.updateAP(index)
         print("\n")
-        input("Tekan Enter Untuk Kembali ke Menu Utama")
         clear()
 
     def hapusData():
@@ -741,7 +847,6 @@ def MenuAktePerkawinan():
         index = int(input("Data Index Keberapa yang akan diedit ? "))
         dataAP.remove(index)
         print("\n")
-        input("Tekan Enter Untuk Kembali ke Menu Utama")
         clear()
 
     while True:
@@ -784,10 +889,10 @@ def MenuKIA():
         print("         Kartu Identitas Anak         ")
         print("======================================")
         print("\n")
-        print("| 1. Tambah data pengajuan KK        |")
-        print("| 2. Edit data KK                    |")
-        print("| 3. Hapus data KK                   |")
-        print("| 4. Tampilkan data KK               |")
+        print("| 1. Tambah data pengajuan KIA        |")
+        print("| 2. Edit data KIA                    |")
+        print("| 3. Hapus data KIA                   |")
+        print("| 4. Tampilkan data KIA               |")
         print("| 0. Keluar Program                  |")
         print("\n")
         print("======================================")
@@ -795,6 +900,7 @@ def MenuKIA():
         return pilih
 
     def tambahData():
+        import os,time
         clear()
         print("=======================================")
         print("     MALL PELAYANAN PUBLIK JEMBER      ")
@@ -815,14 +921,27 @@ def MenuKIA():
             })
             berapaData -= 1
         print("\n")
-        input("Tekan Enter Untuk Kembali ke Menu Utama")
+        os.system("cls")
+        print()
+        print()
+        print("==========================================")
+        print("|         Data In Progress .... ⟳        |")
+        print("==========================================")
+        time.sleep(1.5)
+        os.system("cls")
+        print()
+        print()
+        print("===============================================")
+        print("|         Data Has Been Recorded .... ✔       |")
+        print("===============================================")
+        time.sleep(1)
         clear()
 
     def tampilkanData():
         if dataKIA.isEmpty():
             return print("Data Kosong")
         else:
-            with open('dataMPP.json', 'r') as f:
+            with open('dataKIA.json', 'r') as f:
                 dataKia = json.load(f)
                 dataKia = pd.DataFrame(dataKia)
             return print(dataKia)
@@ -840,7 +959,6 @@ def MenuKIA():
         print("\n")
         dataKIA.updateKIA(index)
         print("\n")
-        input("Tekan Enter Untuk Kembali ke Menu Utama")
         clear()
 
     def hapusData():
@@ -855,7 +973,6 @@ def MenuKIA():
         index = int(input("Data Index Keberapa yang akan diedit ? "))
         dataKIA.remove(index)
         print("\n")
-        input("Tekan Enter Untuk Kembali ke Menu Utama")
         clear()
 
     while True:
@@ -949,7 +1066,7 @@ def menuPengajuan():
 
 def menuHome():
     from getpass import getpass
-    import os
+    import os,time
     os.system("cls")
     print("======================================")
     print("     MALL PELAYANAN PUBLIK JEMBER     ")
@@ -960,12 +1077,18 @@ def menuHome():
     print("======================================")
     inputMenu = int(input("Pilih Daftar Menu : "))
     if inputMenu == 1:
-        # self.menuCostumer()
         menuCostumer()
     elif inputMenu == 2:
         inputUser = input("Masukan Username : ")
         inputPass = getpass("Masukan Password : ")
         if inputUser == "Admin" and inputPass == "Admin":
+            os.system("cls")
+            print()
+            print()
+            print("===================================")
+            print("|          Waiting .... ⟳        |")
+            print("===================================")
+            time.sleep(1)
             menuAdmin()
         else:
             print("user dan password yang anda masukan salah")
