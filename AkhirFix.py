@@ -87,7 +87,24 @@ class LinkedList:
                 bantu = bantu.next
                 
             return datajs
-    def update(self, index):
+    def updateKTP(self, index):
+        nodeUpdate = self.get(index+1)
+        if nodeUpdate is None:
+            print("Data yang akan diedit tidak ditemukan")
+        else:
+            nodeUpdate.info = {
+                    'Pemerintah Provinsi': input("Masukan Nama Provinsi : "),
+                    'Pemerintah Kabupaten/Kota': input("Masukan Nama Kabupaten/Kota: "),
+                    'Kecamatan': input("Masukan Nama Kecamatan : "),
+                    'Kelurahan/Desa': (input("Masukan Nama Kelurahan/Desa : ")),
+                    'Permohonan EKTP': (input("1. Baru | 2. Perpanjangan | 3. Penggantian : ")),
+                    'Nama Lengkap': (input("Masukan Nama Lengkap : ")),
+                    'Nomor Kartu Keluarga': (input("Masukan Nomor KK : ")),
+                    'NIK': (input("Masukan Nomor NIK : ")),
+                    'Alamat': (input("Masukan Alamat : "))
+            }
+            print("\nData Berhasil Diedit")
+    def updateKK(self, index):
         nodeUpdate = self.get(index+1)
         if nodeUpdate is None:
             print("Data yang akan diedit tidak ditemukan")
@@ -97,11 +114,69 @@ class LinkedList:
                 'Pemerintah Kabupaten/Kota': input("Masukan Nama Kabupaten/Kota: "),
                 'Kecamatan': input("Masukan Nama Kecamatan : "),
                 'Kelurahan/Desa': (input("Masukan Nama Kelurahan/Desa : ")),
-                'Permohonan EKTP': (input("1. Baru | 2. Perpanjangan | 3. Penggantian : ")),
-                'Nama Lengkap': (input("Masukan Nama Lengkap : ")),
-                'Nomor Kartu Keluarga': (input("Masukan Nomor KK : ")),
-                'NIK': (input("Masukan Nomor NIK : ")),
-                'Alamat': (input("Masukan Alamat : "))
+                'Nama Lengkap Pemohon': (input("Masukan Nama Lengkap Pemohon : ")),
+                'NIK Pemohon': (input("Masukan NIK Pemohon : ")),
+                'No. KK Semula': (input("Masukan No. KK Semula : ")),
+                'Alamat Pemohon': (input("Masukan Alamat Pemohon : ")),
+                'Alasan Permohonan': (input("Masukan Alasan Permohonan : ")),
+                'Jumlah Anggota Keluarga': (input("Masukan Jumlah Anggota Keluarga : ")),
+                'Nama Anggota Keluarga 1': (input("Masukan Nama Lengkap Anggota Keluarga 1 : ")),
+                'Nama Anggota Keluarga 2': (input("Masukan Nama Lengkap Anggota Keluarga 2 : ")),
+                'Nama Anggota Keluarga 3': (input("Masukan Nama Lengkap Anggota Keluarga 3 : ")),
+                'Nama Anggota Keluarga 4': (input("Masukan Nama Lengkap Anggota Keluarga 4 : ")),
+                'Nama Anggota Keluarga 5': (input("Masukan Nama Lengkap Anggota Keluarga 5 : ")),
+                'Nama Anggota Keluarga 6': (input("Masukan Nama Lengkap Anggota Keluarga 6 : ")),
+                'Nama Anggota Keluarga 7': (input("Masukan Nama Lengkap Anggota Keluarga 7 : ")),
+            }
+            print("\nData Berhasil Diedit")
+    def updateAK(self, index):
+        nodeUpdate = self.get(index+1)
+        if nodeUpdate is None:
+            print("Data yang akan diedit tidak ditemukan")
+        else:
+            nodeUpdate.info = {
+                'Nomor KK': input("Masukan Nomor KK : "),
+                'Nama Lengkap Ibu': input("Masukan Nama Lengkap Ibu : "),
+                'NIK Ibu': input("Masukan NIK Ibu : "),
+                'Nama Anak': input("Masukan Nama Anak : "),
+                'Tempat, Tanggal Lahir': input("Masukan Tempat, Tanggal Lahir : "),
+                'Jenis Kelamin': input("Masukan Jenis Kelamin : "),
+                'Anak Ke': input("Anak Ke : "),
+                'Nama Saksi': input("Masukan Nama Saksi : "),
+                'NIK Saksi': input("Masukan NIK Saksi : "),
+                'Nomor Akta Kelahiran': input("Masukan Nomor Akta Kelahiran : ")
+            }
+            print("\nData Berhasil Diedit")
+    def updateAP(self, index):
+        nodeUpdate = self.get(index+1)
+        if nodeUpdate is None:
+            print("Data yang akan diedit tidak ditemukan")
+        else:
+            nodeUpdate.info = {
+                'Surat Bukti Perkawinan': input("Masukan Nomor Surat Bukti Perkawinan : "),
+                'Nomor Akta Pria': input("Masukan Nomor Akta Pria : "),
+                'Nomor Akta Wanita ': input("Masukan Nomor Akta Wanita : "),
+                'Surat Keterangan Lurah': input("Masukan Nomor Surat Keterangan Lurah: "),
+                'NIK Pria': input("Masukan Nomor NIK Pria : "),
+                'NIK Wanita': input("Masukan Nomor NIK Wanita : "),
+                'Nama Saksi 1': input("Masukan Nama Saksi 1 : "),
+                'Nama Saksi 2': input("Masukan Nama Saksi 2 : "),
+                'NIK Saksi 1': input("Masukan Nomor NIK Saksi 1 : "),
+                'NIK Saksi 2': input("Masukan Nomor NIK Saksi 2 : "),
+            }
+            print("\nData Berhasil Diedit")
+    def updateKIA(self, index):
+        nodeUpdate = self.get(index+1)
+        if nodeUpdate is None:
+            print("Data yang akan diedit tidak ditemukan")
+        else:
+            nodeUpdate.info = {
+                'NIK Ayah': input("Masukan Nomor NIK Ayah : "),
+                'Nama Ayah': input("Masukan Nama Lengkap Ayah : "),
+                'NIK Ibu': input("Masukan Nomor NIK Ibu : "),
+                'Nama Ibu': input("Masukan Nama Lengkap Ibu: "),
+                'Nomor Akta Kelahiran': input("Masukan Nomor Akta Kelahiran : "),
+                'Nomor KK': input("Masukan Nomor KK : ")
             }
             print("\nData Berhasil Diedit")
 class antrianQueue:
@@ -288,7 +363,7 @@ def MenuKTP():
         print("\n")
         index = int(input("Data Index Keberapa yang akan diedit ? "))
         print("\n")
-        dataKTP.update(index)
+        dataKTP.updateKTP(index)
         print("\n")
         input("Tekan Enter Untuk Kembali ke Menu Utama")
         clear()
@@ -334,7 +409,7 @@ def MenuKTP():
             input("Tekan Enter Untuk Kembali ke Menu Utama")
             clear()
         elif pilih == 0:
-            break
+            menuPengajuan()
         else:
             print("Salah memilih angka !")
 def MenuKK():
@@ -380,13 +455,13 @@ def MenuKK():
                 'Alamat Pemohon': (input("Masukan Alamat Pemohon : ")),
                 'Alasan Permohonan': (input("Masukan Alasan Permohonan : ")),
                 'Jumlah Anggota Keluarga': (input("Masukan Jumlah Anggota Keluarga : ")),
-                'Nama Anggota Keluarga 1': (input("Masukan Nama Lengkap : ")),
-                'Nama Anggota Keluarga 2': (input("Masukan Nama Lengkap : ")),
-                'Nama Anggota Keluarga 3': (input("Masukan Nama Lengkap : ")),
-                'Nama Anggota Keluarga 4': (input("Masukan Nama Lengkap : ")),
-                'Nama Anggota Keluarga 5': (input("Masukan Nama Lengkap : ")),
-                'Nama Anggota Keluarga 6': (input("Masukan Nama Lengkap : ")),
-                'Nama Anggota Keluarga 7': (input("Masukan Nama Lengkap : ")),
+                'Nama Anggota Keluarga 1': (input("Masukan Nama Lengkap Anggota Keluarga 1 : ")),
+                'Nama Anggota Keluarga 2': (input("Masukan Nama Lengkap Anggota Keluarga 2 : ")),
+                'Nama Anggota Keluarga 3': (input("Masukan Nama Lengkap Anggota Keluarga 3 : ")),
+                'Nama Anggota Keluarga 4': (input("Masukan Nama Lengkap Anggota Keluarga 4 : ")),
+                'Nama Anggota Keluarga 5': (input("Masukan Nama Lengkap Anggota Keluarga 5 : ")),
+                'Nama Anggota Keluarga 6': (input("Masukan Nama Lengkap Anggota Keluarga 6 : ")),
+                'Nama Anggota Keluarga 7': (input("Masukan Nama Lengkap Anggota Keluarga 7 : ")),
             })
             berapaData -= 1
         print("\n")
@@ -413,7 +488,7 @@ def MenuKK():
         print("\n")
         index = int(input("Data Index Keberapa yang akan diedit ? "))
         print("\n")
-        dataKK.update(index)
+        dataKK.updateKK(index)
         print("\n")
         input("Tekan Enter Untuk Kembali ke Menu Utama")
         clear()
@@ -459,7 +534,7 @@ def MenuKK():
             input("Tekan Enter Untuk Kembali ke Menu Utama")
             clear()
         elif pilih == 0:
-            break
+            menuPengajuan()
         else:
             print("Salah memilih angka !")
 def MenuAkteKelahiran():
@@ -531,7 +606,7 @@ def MenuAkteKelahiran():
         print("\n")
         index = int(input("Data Index Keberapa yang akan diedit ? "))
         print("\n")
-        dataAK.update(index)
+        dataAK.updateAK(index)
         print("\n")
         input("Tekan Enter Untuk Kembali ke Menu Utama")
         clear()
@@ -577,7 +652,7 @@ def MenuAkteKelahiran():
             input("Tekan Enter Untuk Kembali ke Menu Utama")
             clear()
         elif pilih == 0:
-            break
+            menuPengajuan()
         else:
             print("Salah memilih angka !")
 def MenuAktePerkawinan():
@@ -649,7 +724,7 @@ def MenuAktePerkawinan():
         print("\n")
         index = int(input("Data Index Keberapa yang akan diedit ? "))
         print("\n")
-        dataAP.update(index)
+        dataAP.updateAP(index)
         print("\n")
         input("Tekan Enter Untuk Kembali ke Menu Utama")
         clear()
@@ -695,7 +770,7 @@ def MenuAktePerkawinan():
             input("Tekan Enter Untuk Kembali ke Menu Utama")
             clear()
         elif pilih == 0:
-            break
+            menuPengajuan()
         else:
             print("Salah memilih angka !")
 def MenuKIA():
@@ -763,7 +838,7 @@ def MenuKIA():
         print("\n")
         index = int(input("Data Index Keberapa yang akan diedit ? "))
         print("\n")
-        dataKIA.update(index)
+        dataKIA.updateKIA(index)
         print("\n")
         input("Tekan Enter Untuk Kembali ke Menu Utama")
         clear()
@@ -809,7 +884,7 @@ def MenuKIA():
             input("Tekan Enter Untuk Kembali ke Menu Utama")
             clear()
         elif pilih == 0:
-            break
+            menuPengajuan()
         else:
             print("Salah memilih angka !")
 
@@ -853,7 +928,7 @@ def menuPengajuan():
     print("| 3. Pembuatan Akta Kelahiran        |")
     print("| 4. Pengurusan Akta Perkawinan      |")
     print("| 5. Pengurusan KIA                  |")
-    print("| 6. Keluar Program                  |")
+    print("| 0. Keluar Program                  |")
     print("======================================")
     
     inputMenu = int(input("Pilih Daftar Menu : "))
@@ -867,8 +942,8 @@ def menuPengajuan():
         MenuAktePerkawinan()
     elif inputMenu == 5:
         MenuKIA()
-    elif inputMenu == 6:
-        pass
+    elif inputMenu == 0:
+        menuAdmin()
     else:
         print("Mohon maaf pilihan menu tidak ada")
 
@@ -896,6 +971,7 @@ def menuHome():
             print("user dan password yang anda masukan salah")
             menuHome()
     else:
-        pass
+        print("Terima Kasih telah menggunakan Mall Pelayanan Publik Jember")
+        exit()
 
 menuHome()
