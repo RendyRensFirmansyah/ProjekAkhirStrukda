@@ -93,10 +93,15 @@ class LinkedList:
             print("Data yang akan diedit tidak ditemukan")
         else:
             nodeUpdate.info = {
-                'Nama': input("Masukan Nama                : "),
-                'NIK': input("Masukan No NIK          : "),
-                'No. KTP': input("Masukan Pilihan No. KTP    : "),
-                'Tempat, Tanggal Lahir': (input("Masukan Tempat, Tanggal Lahir      : "))
+                'Pemerintah Provinsi': input("Masukan Nama Provinsi : "),
+                'Pemerintah Kabupaten/Kota': input("Masukan Nama Kabupaten/Kota: "),
+                'Kecamatan': input("Masukan Nama Kecamatan : "),
+                'Kelurahan/Desa': (input("Masukan Nama Kelurahan/Desa : ")),
+                'Permohonan EKTP': (input("1. Baru | 2. Perpanjangan | 3. Penggantian : ")),
+                'Nama Lengkap': (input("Masukan Nama Lengkap : ")),
+                'Nomor Kartu Keluarga': (input("Masukan Nomor KK : ")),
+                'NIK': (input("Masukan Nomor NIK : ")),
+                'Alamat': (input("Masukan Alamat : "))
             }
             print("\nData Berhasil Diedit")
 class antrianQueue:
@@ -223,7 +228,7 @@ def MenuKTP():
         clear()
         print("======================================")
         print("     MALL PELAYANAN PUBLIK JEMBER     ")
-        print("         KARTU TANDA PENDUDUK         ")
+        print("         Kartu Tanda Penduduk         ")
         print("======================================")
         print("\n")
         print("| 1. Tambah data pengajuan KTP       |")
@@ -238,20 +243,25 @@ def MenuKTP():
 
     def tambahData():
         clear()
-        print("======================================")
-        print("     MALL PELAYANAN PUBLIK JEMBER     ")
-        print("       Tambah Pengajuan data KTP      ")
-        print("======================================")
+        print("=======================================")
+        print("     MALL PELAYANAN PUBLIK JEMBER      ")
+        print("      Tambah Pengajuan data KTP        ")
+        print("=======================================")
         print("\n")
         berapaData = int(input("Berapa Data yang akan Ditambah ? "))
         print("")
         while berapaData:
-            data.addData(
+            dataKTP.addData(
             {
-                    'Nama': input("Masukan Nama                : "),
-                    'NIK': input("Masukan No NIK          : "),
-                    'No. KTP': input("Masukan Pilihan No. KTP    : "),
-                    'Tempat, Tanggal Lahir': (input("Masukan Tempat, Tanggal Lahir      : "))
+                    'Pemerintah Provinsi': input("Masukan Nama Provinsi : "),
+                    'Pemerintah Kabupaten/Kota': input("Masukan Nama Kabupaten/Kota: "),
+                    'Kecamatan': input("Masukan Nama Kecamatan : "),
+                    'Kelurahan/Desa': (input("Masukan Nama Kelurahan/Desa : ")),
+                    'Permohonan EKTP': (input("1. Baru | 2. Perpanjangan | 3. Penggantian : ")),
+                    'Nama Lengkap': (input("Masukan Nama Lengkap : ")),
+                    'Nomor Kartu Keluarga': (input("Masukan Nomor KK : ")),
+                    'NIK': (input("Masukan Nomor NIK : ")),
+                    'Alamat': (input("Masukan Alamat : "))
             })
             berapaData -= 1
         print("\n")
@@ -269,10 +279,10 @@ def MenuKTP():
 
     def editData():
         clear()
-        print("=====================================")
-        print("=                Edit               =")
-        print("=      Data Anak Kost Pak Budi      =")
-        print("=====================================")
+        print("=======================================")
+        print("     MALL PELAYANAN PUBLIK JEMBER      ")
+        print("        Edit Data Pengajuan KTP        ")
+        print("=======================================")
         print("\n")
         tampilkanData()
         print("\n")
@@ -285,10 +295,10 @@ def MenuKTP():
 
     def hapusData():
         clear()
-        print("=====================================")
-        print("=               Hapus               =")
-        print("=      Data Anak Kost Pak Budi      =")
-        print("=====================================")
+        print("========================================")
+        print("      MALL PELAYANAN PUBLIK JEMBER      ")
+        print("        Hapus Data Pengajuan KTP        ")
+        print("========================================")
         print("\n")
         tampilkanData()
         print("\n")
@@ -314,10 +324,10 @@ def MenuKTP():
             hapusData()
         elif pilih == 4:
             clear()
-            print("=====================================")
-            print("=          Tampilan Tabel           =")
-            print("=      Data Anak Kost Pak Budi      =")
-            print("=====================================")
+            print("==========================================")
+            print("        MALL PELAYANAN PUBLIK JEMBER      ")
+            print("        Tampilan Data Pengajuan KTP       ")
+            print("==========================================")
             print("\n")
             tampilkanData()
             print("\n")
@@ -331,11 +341,11 @@ def MenuKK():
     def clear():
         os.system('cls' if os.name == 'nt' else 'clear')
 
-    def mainKtp():
+    def mainKK():
         clear()
         print("======================================")
         print("     MALL PELAYANAN PUBLIK JEMBER     ")
-        print("            KARTU KELUARGA            ")
+        print("            Kartu Keluarga            ")
         print("======================================")
         print("\n")
         print("| 1. Tambah data pengajuan KK        |")
@@ -350,20 +360,33 @@ def MenuKK():
 
     def tambahData():
         clear()
-        print("======================================")
-        print("     MALL PELAYANAN PUBLIK JEMBER     ")
-        print("       Tambah Pengajuan data KTP      ")
-        print("======================================")
+        print("=======================================")
+        print("     MALL PELAYANAN PUBLIK JEMBER      ")
+        print(" Tambah Pengajuan data Kartu Keluarga  ")
+        print("=======================================")
         print("\n")
         berapaData = int(input("Berapa Data yang akan Ditambah ? "))
         print("")
         while berapaData:
             dataKK.addData(
             {
-                    'Nama': input("Masukan Nama                : "),
-                    'NIK': input("Masukan No NIK          : "),
-                    'No. KTP': input("Masukan Pilihan No. KTP    : "),
-                    'Tempat, Tanggal Lahir': (input("Masukan Tempat, Tanggal Lahir      : "))
+                'Pemerintah Provinsi': input("Masukan Nama Provinsi : "),
+                'Pemerintah Kabupaten/Kota': input("Masukan Nama Kabupaten/Kota: "),
+                'Kecamatan': input("Masukan Nama Kecamatan : "),
+                'Kelurahan/Desa': (input("Masukan Nama Kelurahan/Desa : ")),
+                'Nama Lengkap Pemohon': (input("Masukan Nama Lengkap Pemohon : ")),
+                'NIK Pemohon': (input("Masukan NIK Pemohon : ")),
+                'No. KK Semula': (input("Masukan No. KK Semula : ")),
+                'Alamat Pemohon': (input("Masukan Alamat Pemohon : ")),
+                'Alasan Permohonan': (input("Masukan Alasan Permohonan : ")),
+                'Jumlah Anggota Keluarga': (input("Masukan Jumlah Anggota Keluarga : ")),
+                'Nama Anggota Keluarga 1': (input("Masukan Nama Lengkap : ")),
+                'Nama Anggota Keluarga 2': (input("Masukan Nama Lengkap : ")),
+                'Nama Anggota Keluarga 3': (input("Masukan Nama Lengkap : ")),
+                'Nama Anggota Keluarga 4': (input("Masukan Nama Lengkap : ")),
+                'Nama Anggota Keluarga 5': (input("Masukan Nama Lengkap : ")),
+                'Nama Anggota Keluarga 6': (input("Masukan Nama Lengkap : ")),
+                'Nama Anggota Keluarga 7': (input("Masukan Nama Lengkap : ")),
             })
             berapaData -= 1
         print("\n")
@@ -381,10 +404,10 @@ def MenuKK():
 
     def editData():
         clear()
-        print("=====================================")
-        print("=                Edit               =")
-        print("=      Data Anak Kost Pak Budi      =")
-        print("=====================================")
+        print("=======================================")
+        print("     MALL PELAYANAN PUBLIK JEMBER      ")
+        print("  Edit Data Pengajuan Kartu Keluarga   ")
+        print("=======================================")
         print("\n")
         tampilkanData()
         print("\n")
@@ -397,10 +420,10 @@ def MenuKK():
 
     def hapusData():
         clear()
-        print("=====================================")
-        print("=               Hapus               =")
-        print("=      Data Anak Kost Pak Budi      =")
-        print("=====================================")
+        print("========================================")
+        print("      MALL PELAYANAN PUBLIK JEMBER      ")
+        print("  Hapus Data Pengajuan Kartu Keluarga   ")
+        print("========================================")
         print("\n")
         tampilkanData()
         print("\n")
@@ -416,7 +439,7 @@ def MenuKK():
         with open('dataKK.json', 'w') as json_file:
             json.dump(dataKK.sendJson(), json_file, indent=4)
 
-        pilih = mainKtp()
+        pilih = mainKK()
 
         if pilih == 1:
             tambahData()
@@ -426,10 +449,10 @@ def MenuKK():
             hapusData()
         elif pilih == 4:
             clear()
-            print("=====================================")
-            print("=          Tampilan Tabel           =")
-            print("=      Data Anak Kost Pak Budi      =")
-            print("=====================================")
+            print("==========================================")
+            print("        MALL PELAYANAN PUBLIK JEMBER      ")
+            print("  Tampilan Data Pengajuan Kartu Keluarga  ")
+            print("==========================================")
             print("\n")
             tampilkanData()
             print("\n")
@@ -443,11 +466,11 @@ def MenuAkteKelahiran():
     def clear():
         os.system('cls' if os.name == 'nt' else 'clear')
 
-    def mainKtp():
+    def mainAkta():
         clear()
         print("======================================")
         print("     MALL PELAYANAN PUBLIK JEMBER     ")
-        print("            KARTU KELUARGA            ")
+        print("            Akta Kelahiran            ")
         print("======================================")
         print("\n")
         print("| 1. Tambah data pengajuan KK        |")
@@ -464,18 +487,24 @@ def MenuAkteKelahiran():
         clear()
         print("======================================")
         print("     MALL PELAYANAN PUBLIK JEMBER     ")
-        print("       Tambah Pengajuan data KTP      ")
+        print(" Tambah Pengajuan data Akta Kelahiran ")
         print("======================================")
         print("\n")
         berapaData = int(input("Berapa Data yang akan Ditambah ? "))
         print("")
         while berapaData:
-            data.addData(
+            dataAK.addData(
             {
-                    'Nama': input("Masukan Nama                : "),
-                    'NIK': input("Masukan No NIK          : "),
-                    'No. KTP': input("Masukan Pilihan No. KTP    : "),
-                    'Tempat, Tanggal Lahir': (input("Masukan Tempat, Tanggal Lahir      : "))
+                'Nomor KK': input("Masukan Nomor KK : "),
+                'Nama Lengkap Ibu': input("Masukan Nama Lengkap Ibu : "),
+                'NIK Ibu': input("Masukan NIK Ibu : "),
+                'Nama Anak': input("Masukan Nama Anak : "),
+                'Tempat, Tanggal Lahir': input("Masukan Tempat, Tanggal Lahir : "),
+                'Jenis Kelamin': input("Masukan Jenis Kelamin : "),
+                'Anak Ke': input("Anak Ke : "),
+                'Nama Saksi': input("Masukan Nama Saksi : "),
+                'NIK Saksi': input("Masukan NIK Saksi : "),
+                'Nomor Akta Kelahiran': input("Masukan Nomor Akta Kelahiran : ")
             })
             berapaData -= 1
         print("\n")
@@ -483,41 +512,41 @@ def MenuAkteKelahiran():
         clear()
 
     def tampilkanData():
-        if data.isEmpty():
+        if dataAK.isEmpty():
             return print("Data Kosong")
         else:
-            with open('dataMPP.json', 'r') as f:
-                dataKost = json.load(f)
-                dataKost = pd.DataFrame(dataKost)
-            return print(dataKost)
+            with open('dataAK.json', 'r') as f:
+                dataAk = json.load(f)
+                dataAk = pd.DataFrame(dataAk)
+            return print(dataAk)
 
     def editData():
         clear()
-        print("=====================================")
-        print("=                Edit               =")
-        print("=      Data Anak Kost Pak Budi      =")
-        print("=====================================")
+        print("======================================")
+        print("     MALL PELAYANAN PUBLIK JEMBER     ")
+        print("  Edit Data Pengajuan Akta Kelahiran  ")
+        print("======================================")
         print("\n")
         tampilkanData()
         print("\n")
         index = int(input("Data Index Keberapa yang akan diedit ? "))
         print("\n")
-        data.update(index)
+        dataAK.update(index)
         print("\n")
         input("Tekan Enter Untuk Kembali ke Menu Utama")
         clear()
 
     def hapusData():
         clear()
-        print("=====================================")
-        print("=               Hapus               =")
-        print("=      Data Anak Kost Pak Budi      =")
-        print("=====================================")
+        print("=======================================")
+        print("      MALL PELAYANAN PUBLIK JEMBER     ")
+        print("  Hapus Data Pengajuan Akta Kelahiran  ")
+        print("=======================================")
         print("\n")
         tampilkanData()
         print("\n")
         index = int(input("Data Index Keberapa yang akan diedit ? "))
-        data.remove(index)
+        dataAK.remove(index)
         print("\n")
         input("Tekan Enter Untuk Kembali ke Menu Utama")
         clear()
@@ -525,10 +554,10 @@ def MenuAkteKelahiran():
     while True:
 
         # Convert Linkedlist To Json
-        with open('dataMPP.json', 'w') as json_file:
-            json.dump(data.sendJson(), json_file, indent=4)
+        with open('dataAK.json', 'w') as json_file:
+            json.dump(dataAK.sendJson(), json_file, indent=4)
 
-        pilih = mainKtp()
+        pilih = mainAkta()
 
         if pilih == 1:
             tambahData()
@@ -538,10 +567,10 @@ def MenuAkteKelahiran():
             hapusData()
         elif pilih == 4:
             clear()
-            print("=====================================")
-            print("=          Tampilan Tabel           =")
-            print("=      Data Anak Kost Pak Budi      =")
-            print("=====================================")
+            print("==========================================")
+            print("        MALL PELAYANAN PUBLIK JEMBER      ")
+            print("  Tampilan Data Pengajuan Akta Kelahiran  ")
+            print("==========================================")
             print("\n")
             tampilkanData()
             print("\n")
@@ -555,11 +584,11 @@ def MenuAktePerkawinan():
     def clear():
         os.system('cls' if os.name == 'nt' else 'clear')
 
-    def mainKtp():
+    def mainAktaP():
         clear()
         print("======================================")
         print("     MALL PELAYANAN PUBLIK JEMBER     ")
-        print("            KARTU KELUARGA            ")
+        print("            Akta Perkawinan           ")
         print("======================================")
         print("\n")
         print("| 1. Tambah data pengajuan KK        |")
@@ -574,20 +603,26 @@ def MenuAktePerkawinan():
 
     def tambahData():
         clear()
-        print("======================================")
-        print("     MALL PELAYANAN PUBLIK JEMBER     ")
-        print("       Tambah Pengajuan data KTP      ")
-        print("======================================")
+        print("=======================================")
+        print("     MALL PELAYANAN PUBLIK JEMBER      ")
+        print(" Tambah Pengajuan data Akta Perkawinan ")
+        print("=======================================")
         print("\n")
         berapaData = int(input("Berapa Data yang akan Ditambah ? "))
         print("")
         while berapaData:
-            data.addData(
+            dataAP.addData(
             {
-                    'Nama': input("Masukan Nama                : "),
-                    'NIK': input("Masukan No NIK          : "),
-                    'No. KTP': input("Masukan Pilihan No. KTP    : "),
-                    'Tempat, Tanggal Lahir': (input("Masukan Tempat, Tanggal Lahir      : "))
+                'Surat Bukti Perkawinan': input("Masukan Nomor Surat Bukti Perkawinan : "),
+                'Nomor Akta Pria': input("Masukan Nomor Akta Pria : "),
+                'Nomor Akta Wanita ': input("Masukan Nomor Akta Wanita : "),
+                'Surat Keterangan Lurah': input("Masukan Nomor Surat Keterangan Lurah: "),
+                'NIK Pria': input("Masukan Nomor NIK Pria : "),
+                'NIK Wanita': input("Masukan Nomor NIK Wanita : "),
+                'Nama Saksi 1': input("Masukan Nama Saksi 1 : "),
+                'Nama Saksi 2': input("Masukan Nama Saksi 2 : "),
+                'NIK Saksi 1': input("Masukan Nomor NIK Saksi 1 : "),
+                'NIK Saksi 2': input("Masukan Nomor NIK Saksi 2 : "),
             })
             berapaData -= 1
         print("\n")
@@ -595,41 +630,41 @@ def MenuAktePerkawinan():
         clear()
 
     def tampilkanData():
-        if data.isEmpty():
+        if dataAP.isEmpty():
             return print("Data Kosong")
         else:
             with open('dataMPP.json', 'r') as f:
-                dataKost = json.load(f)
-                dataKost = pd.DataFrame(dataKost)
-            return print(dataKost)
+                dataAp = json.load(f)
+                dataAp = pd.DataFrame(dataAp)
+            return print(dataAp)
 
     def editData():
         clear()
-        print("=====================================")
-        print("=                Edit               =")
-        print("=      Data Anak Kost Pak Budi      =")
-        print("=====================================")
+        print("=======================================")
+        print("     MALL PELAYANAN PUBLIK JEMBER      ")
+        print("  Edit Data Pengajuan Akta Perkawinan  ")
+        print("=======================================")
         print("\n")
         tampilkanData()
         print("\n")
         index = int(input("Data Index Keberapa yang akan diedit ? "))
         print("\n")
-        data.update(index)
+        dataAP.update(index)
         print("\n")
         input("Tekan Enter Untuk Kembali ke Menu Utama")
         clear()
 
     def hapusData():
         clear()
-        print("=====================================")
-        print("=               Hapus               =")
-        print("=      Data Anak Kost Pak Budi      =")
-        print("=====================================")
+        print("========================================")
+        print("      MALL PELAYANAN PUBLIK JEMBER      ")
+        print("  Hapus Data Pengajuan Akta Perkawinan  ")
+        print("========================================")
         print("\n")
         tampilkanData()
         print("\n")
         index = int(input("Data Index Keberapa yang akan diedit ? "))
-        data.remove(index)
+        dataAP.remove(index)
         print("\n")
         input("Tekan Enter Untuk Kembali ke Menu Utama")
         clear()
@@ -637,10 +672,10 @@ def MenuAktePerkawinan():
     while True:
 
         # Convert Linkedlist To Json
-        with open('dataMPP.json', 'w') as json_file:
-            json.dump(data.sendJson(), json_file, indent=4)
+        with open('dataAP.json', 'w') as json_file:
+            json.dump(dataAP.sendJson(), json_file, indent=4)
 
-        pilih = mainKtp()
+        pilih = mainAktaP()
 
         if pilih == 1:
             tambahData()
@@ -650,10 +685,10 @@ def MenuAktePerkawinan():
             hapusData()
         elif pilih == 4:
             clear()
-            print("=====================================")
-            print("=          Tampilan Tabel           =")
-            print("=      Data Anak Kost Pak Budi      =")
-            print("=====================================")
+            print("==========================================")
+            print("        MALL PELAYANAN PUBLIK JEMBER      ")
+            print("  Tampilan Data Pengajuan Akta Perkawinan  ")
+            print("==========================================")
             print("\n")
             tampilkanData()
             print("\n")
@@ -667,11 +702,11 @@ def MenuKIA():
     def clear():
         os.system('cls' if os.name == 'nt' else 'clear')
 
-    def mainKtp():
+    def mainKIA():
         clear()
         print("======================================")
         print("     MALL PELAYANAN PUBLIK JEMBER     ")
-        print("            KARTU KELUARGA            ")
+        print("         Kartu Identitas Anak         ")
         print("======================================")
         print("\n")
         print("| 1. Tambah data pengajuan KK        |")
@@ -686,20 +721,22 @@ def MenuKIA():
 
     def tambahData():
         clear()
-        print("======================================")
-        print("     MALL PELAYANAN PUBLIK JEMBER     ")
-        print("       Tambah Pengajuan data KTP      ")
-        print("======================================")
+        print("=======================================")
+        print("     MALL PELAYANAN PUBLIK JEMBER      ")
+        print("      Tambah Pengajuan data KIA        ")
+        print("=======================================")
         print("\n")
         berapaData = int(input("Berapa Data yang akan Ditambah ? "))
         print("")
         while berapaData:
-            data.addData(
+            dataKIA.addData(
             {
-                    'Nama': input("Masukan Nama                : "),
-                    'NIK': input("Masukan No NIK          : "),
-                    'No. KTP': input("Masukan Pilihan No. KTP    : "),
-                    'Tempat, Tanggal Lahir': (input("Masukan Tempat, Tanggal Lahir      : "))
+                'NIK Ayah': input("Masukan Nomor NIK Ayah : "),
+                'Nama Ayah': input("Masukan Nama Lengkap Ayah : "),
+                'NIK Ibu': input("Masukan Nomor NIK Ibu : "),
+                'Nama Ibu': input("Masukan Nama Lengkap Ibu: "),
+                'Nomor Akta Kelahiran': input("Masukan Nomor Akta Kelahiran : "),
+                'Nomor KK': input("Masukan Nomor KK : ")
             })
             berapaData -= 1
         print("\n")
@@ -707,41 +744,41 @@ def MenuKIA():
         clear()
 
     def tampilkanData():
-        if data.isEmpty():
+        if dataKIA.isEmpty():
             return print("Data Kosong")
         else:
             with open('dataMPP.json', 'r') as f:
-                dataKost = json.load(f)
-                dataKost = pd.DataFrame(dataKost)
-            return print(dataKost)
+                dataKia = json.load(f)
+                dataKia = pd.DataFrame(dataKia)
+            return print(dataKia)
 
     def editData():
         clear()
-        print("=====================================")
-        print("=                Edit               =")
-        print("=      Data Anak Kost Pak Budi      =")
-        print("=====================================")
+        print("=======================================")
+        print("     MALL PELAYANAN PUBLIK JEMBER      ")
+        print("       Edit Data Pengajuan KIA         ")
+        print("=======================================")
         print("\n")
         tampilkanData()
         print("\n")
         index = int(input("Data Index Keberapa yang akan diedit ? "))
         print("\n")
-        data.update(index)
+        dataKIA.update(index)
         print("\n")
         input("Tekan Enter Untuk Kembali ke Menu Utama")
         clear()
 
     def hapusData():
         clear()
-        print("=====================================")
-        print("=               Hapus               =")
-        print("=      Data Anak Kost Pak Budi      =")
-        print("=====================================")
+        print("========================================")
+        print("      MALL PELAYANAN PUBLIK JEMBER      ")
+        print("        Hapus Data Pengajuan KIA        ")
+        print("========================================")
         print("\n")
         tampilkanData()
         print("\n")
         index = int(input("Data Index Keberapa yang akan diedit ? "))
-        data.remove(index)
+        dataKIA.remove(index)
         print("\n")
         input("Tekan Enter Untuk Kembali ke Menu Utama")
         clear()
@@ -749,10 +786,10 @@ def MenuKIA():
     while True:
 
         # Convert Linkedlist To Json
-        with open('dataMPP.json', 'w') as json_file:
-            json.dump(data.sendJson(), json_file, indent=4)
+        with open('dataKIA.json', 'w') as json_file:
+            json.dump(dataKIA.sendJson(), json_file, indent=4)
 
-        pilih = mainKtp()
+        pilih = mainKIA()
 
         if pilih == 1:
             tambahData()
@@ -762,10 +799,10 @@ def MenuKIA():
             hapusData()
         elif pilih == 4:
             clear()
-            print("=====================================")
-            print("=          Tampilan Tabel           =")
-            print("=      Data Anak Kost Pak Budi      =")
-            print("=====================================")
+            print("==========================================")
+            print("        MALL PELAYANAN PUBLIK JEMBER      ")
+            print("        Tampilan Data Pengajuan KIA       ")
+            print("==========================================")
             print("\n")
             tampilkanData()
             print("\n")
