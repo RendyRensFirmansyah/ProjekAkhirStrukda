@@ -92,7 +92,7 @@ class LinkedList:
                 time.sleep(1)
     def sendJson(self):
         if self.isEmpty():
-            return "Belum ada data"
+            return []
         else:
             bantu = self.awal
             datajs = []
@@ -190,7 +190,9 @@ class LinkedList:
         else:
             nodeUpdate.info = {
                 'Surat Bukti Perkawinan': input("Masukan Nomor Surat Bukti Perkawinan : "),
+                'Nama Pria': input("Masukan Nama Lengkap Pria : "),
                 'Nomor Akta Pria': input("Masukan Nomor Akta Pria : "),
+                'Nama Wanita ': input("Masukan Nama Lengkap Wanita : "),
                 'Nomor Akta Wanita ': input("Masukan Nomor Akta Wanita : "),
                 'Surat Keterangan Lurah': input("Masukan Nomor Surat Keterangan Lurah: "),
                 'NIK Pria': input("Masukan Nomor NIK Pria : "),
@@ -218,6 +220,7 @@ class LinkedList:
                 'Nama Ayah': input("Masukan Nama Lengkap Ayah : "),
                 'NIK Ibu': input("Masukan Nomor NIK Ibu : "),
                 'Nama Ibu': input("Masukan Nama Lengkap Ibu: "),
+                'Nama Anak': input("Masukan Nama Lengkap Anak: "),
                 'Nomor Akta Kelahiran': input("Masukan Nomor Akta Kelahiran : "),
                 'Nomor KK': input("Masukan Nomor KK : ")
             }
@@ -783,7 +786,9 @@ def MenuAktePerkawinan():
             dataAP.addData(
             {
                 'Surat Bukti Perkawinan': input("Masukan Nomor Surat Bukti Perkawinan : "),
+                'Nama Pria': input("Masukan Nama Lengkap Pria : "),
                 'Nomor Akta Pria': input("Masukan Nomor Akta Pria : "),
+                'Nama Wanita ': input("Masukan Nama Lengkap Wanita : "),
                 'Nomor Akta Wanita ': input("Masukan Nomor Akta Wanita : "),
                 'Surat Keterangan Lurah': input("Masukan Nomor Surat Keterangan Lurah: "),
                 'NIK Pria': input("Masukan Nomor NIK Pria : "),
@@ -916,6 +921,7 @@ def MenuKIA():
                 'Nama Ayah': input("Masukan Nama Lengkap Ayah : "),
                 'NIK Ibu': input("Masukan Nomor NIK Ibu : "),
                 'Nama Ibu': input("Masukan Nama Lengkap Ibu: "),
+                'Nama Anak': input("Masukan Nama Lengkap Anak: "),
                 'Nomor Akta Kelahiran': input("Masukan Nomor Akta Kelahiran : "),
                 'Nomor KK': input("Masukan Nomor KK : ")
             })
@@ -1073,7 +1079,7 @@ def menuHome():
     print("======================================")
     print("| 1. Customer                        |")
     print("| 2. Admin                           |")
-    print("| 3. Keluar                          |")
+    print("| 0. Keluar                          |")
     print("======================================")
     inputMenu = int(input("Pilih Daftar Menu : "))
     if inputMenu == 1:
