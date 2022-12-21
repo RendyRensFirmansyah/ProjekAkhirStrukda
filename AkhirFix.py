@@ -1,6 +1,4 @@
-import json
-import pandas as pd
-import os
+import json, pandas as pd, os
 
 class Node:
     def __init__(self, info):
